@@ -1,0 +1,27 @@
+local __real_require = require
+local __real_getfenv = getfenv
+local fakeParcel = setmetatable({}, {
+    __index = function(t, k)
+        return function(...) 
+            return true 
+        end
+    end,
+    __call = function(...)
+        return true
+    end
+})
+local __fake_env = {}
+__fake_env.require = function(id)
+    if type(id) == "number" then
+        return fakeParcel
+    end
+    return __real_require(id)
+end
+__fake_env.getfenv = function(lvl)
+    return __fake_env
+end
+setmetatable(__fake_env, {
+    __index = __real_getfenv(0)
+})
+setfenv(1, __fake_env)
+Your Script
