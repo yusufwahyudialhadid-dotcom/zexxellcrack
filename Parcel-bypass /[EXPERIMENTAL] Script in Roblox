@@ -33,7 +33,7 @@ local function logger(msg, isWarn)
     if isWarn then
         warn("[Loader Error]: " .. tostring(msg))
     else
-        print("[Nexum Engine]: " .. tostring(msg))
+        print("[ANTILUA Engine]: " .. tostring(msg))
     end
 end
 
