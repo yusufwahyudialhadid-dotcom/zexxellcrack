@@ -87,7 +87,7 @@ local fakeSignal = {
 fakeParcel = {}
 local fakeParcelMeta = {
     __index = function(t, k)
-        if k == "Name" or k == "name" then return "StarlightObject" end
+        if k == "Name" or k == "name" then return "ANTILUAObject" end
         if k == "ClassName" then return "Folder" end
         if k == "Parent" then return fakeParcel end
         if k == "Changed" or k == "ChildAdded" or k == "ChildRemoved" or k == "OnClientEvent" then
